@@ -1,0 +1,43 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "butter",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 0.5,
+  "sample": 8,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "9505e133-c845-46fe-a62f-65761708f6b3"
+            }
+          },
+          {
+            "frame": 0.125,
+            "value": {
+              "__uuid__": "d71b0409-31b9-4647-85dc-c246ef196ac9"
+            }
+          },
+          {
+            "frame": 0.25,
+            "value": {
+              "__uuid__": "d3e13407-a54a-4989-b457-024e501aa0a9"
+            }
+          },
+          {
+            "frame": 0.375,
+            "value": {
+              "__uuid__": "ba26bded-57c2-4e93-91cd-d4a54d2c971e"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

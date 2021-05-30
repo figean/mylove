@@ -6,29 +6,32 @@ cc.Class({
        dieAudio:{
            default:null,
            url:cc.AudioClip
-       }
+       },
+
+       sprFrame:{
+           default : [],
+           type : cc.SpriteFrame
+       },
+
+       lv: 0.2
     },
 
     
     onLoad: function () {
         var self= this;
-        var listener = {
-            event: cc.EventListener.TOUCH_ONE_BY_ONE,
-            onTouchBegan: function (touches, event) {
-                var goAction= cc.moveBy(0.2,cc.p(0,140));
-                self.node.runAction(goAction);
-                return true; //这里必须要写 return true
-            },
-            onTouchMoved: function (touches, event) {
-              
-            },
-            onTouchEnded: function (touches, event) {
-           
-            },
-            onTouchCancelled: function (touches, event) {
-            }
+        cc.director.on('jump', ()=>{
+             var goAction= cc.moveBy(0.2,cc.p(0,160));
+            self.node.runAction(goAction);
+        })
+
+        let rand = cc.random0To1();
+        if(rand < 0.5){
+            this.lv = 0.1;
+            this.node.getComponent(cc.Sprite).spriteFrame = this.sprFrame[0];
+        }else{
+            this.lv = 0.2;
+            this.node.getComponent(cc.Sprite).spriteFrame = this.sprFrame[1];
         }
-        cc.eventManager.addListener(listener, this.node);
     },
     noteBox:function(){
         return this.node.getBoundingBoxToWorld();
@@ -38,10 +41,10 @@ cc.Class({
         var player = cc.find("Canvas/normal").getComponent(tmpPlayer);
 
         if(cc.rectIntersectsRect(player.node.getBoundingBoxToWorld(),this.noteBox())){
-            
+            player.addLv(this.lv);
+            cc.director.off('jump');
+            this.node.destroy();
             cc.audioEngine.playEffect(this.dieAudio,false);
-            cc.director.loadScene('OverScene');
-           //cc.log('碰撞');
         }
 
      },

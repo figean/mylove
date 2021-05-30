@@ -18,7 +18,7 @@ cc.Class({
         cc.log(score);
         this.scoreLabel.string = "最终得分："+score;
         this.button.on("touchstart",function(){
-            cc.director.loadScene("gameScene1");
+            cc.director.loadScene("game_1");
         });
     },
 

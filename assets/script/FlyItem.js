@@ -33,7 +33,7 @@ cc.Class({
     noteBox:function(){
         return this.node.getBoundingBoxToWorld();
     },
-    // called every frame, uncomment this function to activate update callback
+
      update: function (dt) {
         var player = cc.find("Canvas/normal").getComponent(tmpPlayer);
 
@@ -41,7 +41,6 @@ cc.Class({
             
             cc.audioEngine.playEffect(this.dieAudio,false);
             cc.director.loadScene('OverScene');
-           //cc.log('碰撞');
         }
         this.node.y += 1;
 

@@ -10,6 +10,6 @@ cc.Class({
     },
 
     btnstart () {
-        cc.director.loadScene('gameScene1');
+        cc.director.loadScene('game_1');
     }
 });

@@ -42,6 +42,10 @@ cc.Class({
             default: null,
             type : cc.Label
         },
+        awardLayer:{
+            default: null,
+            type : cc.Node
+        },
         score: 0,
         dc_duration: 140, //地刺的间隔距离
         mask: cc.Node,
@@ -114,7 +118,7 @@ cc.Class({
     setInputControl: function () {
         var self = this;
         self.node.on('touchstart', (event) => {
-              cc.director.emit('jump');
+            cc.director.emit('jump');
             cc.audioEngine.playEffect(self.jumpAudio, false);
             var target = event.getCurrentTarget(); //获取事件所绑定的target
             var locationInNode = target.convertToNodeSpace(event.getLocation());
@@ -125,12 +129,18 @@ cc.Class({
             }
             //把分数存储到本地
             self.score += 1;
+            if(self.score >= 1){
+                this.mask.active = true;
+                let action = cc.moveTo(0.5, 0,0).easing(cc.easeBackOut(3.0));
+                this.awardLayer.runAction(action);
+            }
             cc.sys.localStorage.setItem("score", self.score);
 
             self.scoreLabel.string = self.score;
             self.NewDici();
         })
     },
+
 
     //得到新的飞行物体
     NewFly: function () {
@@ -175,23 +185,29 @@ cc.Class({
         }, 1);
         this.mask.zindex = 1000;
         this.talkCount = 0;
+        this.talkLabel.string = this.strings[this.talkCount];
+        this.talkCount++;
         this.mask.on('touchstart', (event) => {
             event.stopPropagation();
+            if(this.score >= 1){
+                return;
+            }
             if(this.strings[this.talkCount]){
-                this.talkLabel.string = this.strings[this.talkCount];//
+                this.talkLabel.string = this.strings[this.talkCount];
                 this.talkNode.scale = 0;
-                let action = cc.scaleTo(0.2,1).easing(cc.easeIn(3.0));
+                let action = cc.scaleTo(0.2,1).easing(cc.easeBackOut(3.0));
                 this.talkNode.runAction(action);
                 this.talkCount++;
             }else{
                 this.mask.active = false;
+                this.talkNode.active = false;
             }
         })
 
     },
 
+
     nextScene() {
-        cc.director.getScheduler().pauseAllTargets();
-    }
+    },
 
 });

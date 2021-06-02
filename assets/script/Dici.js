@@ -18,18 +18,23 @@ cc.Class({
 
     
     onLoad: function () {
-        var self= this;
+        let self= this;
         cc.director.on('jump', ()=>{
-             var goAction= cc.moveBy(0.2,cc.p(0,160));
-            self.node.runAction(goAction);
+            let goAction= cc.moveBy(0.2,cc.p(0,160));
+            if(self.node){
+                 self.node.runAction(goAction);
+            }
         })
+        this.init();
+    },
 
+    init() {
         let rand = cc.random0To1();
         if(rand < 0.5){
-            this.lv = 0.1;
+            this.lv = 1;
             this.node.getComponent(cc.Sprite).spriteFrame = this.sprFrame[0];
         }else{
-            this.lv = 0.2;
+            this.lv = 2;
             this.node.getComponent(cc.Sprite).spriteFrame = this.sprFrame[1];
         }
     },
@@ -42,7 +47,6 @@ cc.Class({
 
         if(cc.rectIntersectsRect(player.node.getBoundingBoxToWorld(),this.noteBox())){
             player.addLv(this.lv);
-            cc.director.off('jump');
             this.node.destroy();
             cc.audioEngine.playEffect(this.dieAudio,false);
         }

@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "736bd972-6e1d-49fc-8b36-128f6d04cce7",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "stair_stable_01": {
+      "ver": "1.0.3",
+      "uuid": "d388e008-63a8-4bd8-8a82-9ff9946bb467",
+      "rawTextureUuid": "736bd972-6e1d-49fc-8b36-128f6d04cce7",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -51.5,
+      "offsetY": 35.5,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 153,
+      "height": 57,
+      "rawWidth": 256,
+      "rawHeight": 128,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

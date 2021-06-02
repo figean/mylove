@@ -1,0 +1,30 @@
+{
+  "ver": "1.0.0",
+  "uuid": "935cf674-2202-4ea3-934d-a530f97d6314",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "subMetas": {
+    "Player_Girl": {
+      "ver": "1.0.3",
+      "uuid": "31b0eaae-98e5-4bea-8708-df1117ec90e3",
+      "rawTextureUuid": "935cf674-2202-4ea3-934d-a530f97d6314",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -1.5,
+      "offsetY": 0,
+      "trimX": 1,
+      "trimY": 1,
+      "width": 1019,
+      "height": 1022,
+      "rawWidth": 1024,
+      "rawHeight": 1024,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

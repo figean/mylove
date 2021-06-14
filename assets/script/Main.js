@@ -1,4 +1,7 @@
 let winSize = cc.director.getWinSize();
+if(!CC_EDITOR){
+    cc.director.setClearColor(cc.Color.WHITE)
+}
 
 cc.Class({
     extends: cc.Component,
